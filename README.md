@@ -18,3 +18,133 @@ A Mealy state machine is a type of finite state machine where the outputs are de
 - Industrial Automation
 - Pattern Recognition
 - Firmware and Embedded Systems
+
+
+## Tools Used in RTL to GLS flow are:
+
+1.iVerilog:
+- A free and open-source Verilog simulation and synthesis tool.
+- Part of the Icarus Verilog project.
+- Utilized for simulating Verilog hardware description language code.
+- It enables testing the design using a test bench, which applies stimulus to verify the functionality.
+- Monitors input changes and evaluates corresponding output responses.
+
+2.GTKwave:
+- A free and open-source waveform viewer.
+- Mainly used for visualizing simulation results produced by digital simulation tools such as Icarus Verilog.
+
+3.Yosys:
+- An open-source framework designed for Verilog RTL synthesis.
+- Widely employed in digital design for converting high-level digital circuit descriptions into gate-level representations.
+- Helps transform behavioral descriptions (e.g., Verilog code) into netlists, offering detailed information about the digital logic through gates and their connections.
+
+## Functional Simulation 
+
+steps for cloning the repository
+
+```
+git clone https://github.com/JBavitha/pes_sdw
+cd pes_sdw
+iverilog pes_sdw.v pes_sdw_tb.v
+./a.out
+gtkwave pes_sdw_tb.vcd
+
+```
+![Screenshot from 2023-10-21 11-54-21](https://github.com/JBavitha/pes_sdw/assets/142578450/6f5808b5-3e3e-4904-8f46-4e64359a7757)
+
+```
+vim pes_sdw.v
+vim pes_sdw_tb.v
+```
+![Screenshot from 2023-10-21 14-52-18](https://github.com/JBavitha/pes_sdw/assets/142578450/04683d8c-aa6f-4e6e-bf60-8132f97c132b)
+
+![Screenshot from 2023-10-21 14-44-18](https://github.com/JBavitha/pes_sdw/assets/142578450/57f07cdd-1fef-4f94-9798-419b74aaefe5)
+
+![Screenshot from 2023-10-21 14-48-49](https://github.com/JBavitha/pes_sdw/assets/142578450/5211fbae-fc20-473e-970b-e123fad6ed2d)
+
+
+**Pre synthesis Simulation result**
+
+![Screenshot from 2023-10-21 11-54-46](https://github.com/JBavitha/pes_sdw/assets/142578450/a64737bc-8af7-4df3-9c0a-0655fd25f444)
+
+
+## RTL Synthesis
+
+```
+read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_verilog pes_sdw.v
+synth -top pes_sdw
+
+```
+
+![image](https://github.com/JBavitha/pes_sdw/assets/142578450/15f08c25-f610-42f1-bcd6-214167712107)
+
+![image](https://github.com/JBavitha/pes_sdw/assets/142578450/e5f4cf9e-1d4a-4340-862c-c248de42372c)
+
+
+To view the netlist
+
+```
+ abc -liberty -lib ./lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+ show
+
+```
+
+![Screenshot from 2023-10-21 12-02-53](https://github.com/JBavitha/pes_sdw/assets/142578450/62757a48-a0c2-4591-bf99-94b2914cd310)
+
+To get .net 
+```
+write_verilog pes_sdw_net.v
+!vim pes_sdw_net.v
+
+```
+
+![image](https://github.com/JBavitha/pes_sdw/assets/142578450/4df29d9c-a985-463b-85f8-0a38ab7649e6)
+
+
+![image](https://github.com/JBavitha/pes_sdw/assets/142578450/c20a5362-86d0-4e69-9e62-65c9db06bc22)
+
+
+To get even more simpler code type the following commands 
+
+```
+write_verilog -noattr pes_sdw_net.v
+!vim pes_sdw_net.v
+
+```
+
+![image](https://github.com/JBavitha/pes_sdw/assets/142578450/f62f23de-03bb-40b7-94f1-8561c057ec22)
+
+## GLS(Gate Level Simulation)
+
+```
+iverilog ../my_lib/verilog_model/primitives.v ../my_lib/verilog_model/sky130_fd_sc_hd.v pes_sdw_net.v tb_pes_sdw.v
+```
+
+![image](https://github.com/JBavitha/pes_sdw/assets/142578450/bbc59e49-52b6-4853-86c3-e5f6ffab2ad5)
+
+
+```
+./a.out
+gtkwave pes_sdw_tb.vcd 
+```
+![Screenshot from 2023-10-21 12-10-08](https://github.com/JBavitha/pes_sdw/assets/142578450/c628d6b0-404a-4a61-8efb-23a7a9847545)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
