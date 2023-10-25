@@ -40,17 +40,22 @@ A Mealy state machine is a type of finite state machine where the outputs are de
 
 ## Functional Simulation 
 
-steps for cloning the repository
+To clone the repository use the below command 
 
 ```
 git clone https://github.com/JBavitha/pes_sdw
-cd pes_sdw
+```
+Both the Verilog code and its corresponding testbench are loaded into the iVerilog tool.
+
+```
+vim pes_sdw.v
+vim pes_sdw_tb.v
 iverilog pes_sdw.v pes_sdw_tb.v
 ./a.out
 gtkwave pes_sdw_tb.vcd
 
 ```
-![Screenshot from 2023-10-21 11-54-21](https://github.com/JBavitha/pes_sdw/assets/142578450/6f5808b5-3e3e-4904-8f46-4e64359a7757)
+
 
 ```
 vim pes_sdw.v
