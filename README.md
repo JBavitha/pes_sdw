@@ -57,10 +57,7 @@ gtkwave pes_sdw_tb.vcd
 ```
 
 
-```
-vim pes_sdw.v
-vim pes_sdw_tb.v
-```
+
 ![Screenshot from 2023-10-21 14-52-18](https://github.com/JBavitha/pes_sdw/assets/142578450/04683d8c-aa6f-4e6e-bf60-8132f97c132b)
 
 ![Screenshot from 2023-10-21 14-44-18](https://github.com/JBavitha/pes_sdw/assets/142578450/57f07cdd-1fef-4f94-9798-419b74aaefe5)
