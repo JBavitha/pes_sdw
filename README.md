@@ -131,7 +131,22 @@ iverilog ../my_lib/verilog_model/primitives.v ../my_lib/verilog_model/sky130_fd_
 gtkwave pes_sdw_tb.vcd 
 ```
 ![Screenshot from 2023-10-21 12-10-08](https://github.com/JBavitha/pes_sdw/assets/142578450/c628d6b0-404a-4a61-8efb-23a7a9847545)
+# Physical design 
 
+- Physical design is the essential procedure that converts an abstract depiction of an electronic system, like an integrated circuit or computer chip, into a practical layout fit for manufacturing. This intricate process involves a series of stages for organizing and structuring different components, such as transistors, wiring, and connections, on a semiconductor material.
+
+Key facets of physical design encompass:
+
+ - Floorplanning: Defining the spatial arrangement of components and modules within the chip's layout.
+ - Placement: Positioning individual elements like transistors and logic gates efficiently on the semiconductor substrate.
+ - Routing: Establishing the interconnections or wiring between these components to facilitate data flow.
+ - Clock Tree Synthesis (CTS): Structuring the clock distribution network to ensure precise synchronization throughout the chip.
+ - Power Planning: Managing power distribution and consumption to maintain optimal operation and minimize energy usage.
+ - Signal Integrity Analysis: Assessing the integrity of signals during transmission to prevent interference or distortion.
+ - Timing Analysis: Evaluating the timing of signal propagation to meet performance requirements and minimize delays.
+ - Design for Testability (DFT): Incorporating features that simplify testing and fault detection during chip production.
+ - Physical Verification: Conducting rigorous checks to confirm that the physical design adheres to design rules and is free from errors.
+ - Package Design: Creating the external packaging of the chip, considering factors like heat dissipation and connectivity.
 
 
 
