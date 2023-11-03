@@ -228,8 +228,14 @@ if { [file exists $filename] == 1} {
 }
 ```
 - after this, we go to the src file and add the pes_sdw.v file that we generated from Yosys in RTL synthesis and the required PDKs for our design.
-
-
+### Step 2
+- To initiate Openlane, we invoke it by executing the following commands
+```
+cd Desktop/work/tools/openlane_working_dir/openlane
+docker
+./flow.tcl -interactive
+package require openlane
+```
 
 
 
