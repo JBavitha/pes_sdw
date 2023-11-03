@@ -207,9 +207,27 @@ make
 make test
 ```
 
+### Step 1
+- To begin the physical design process, we must create the design file for the "pes_sdw" project. This entails having the "pes_sdw.v" file and access to the Skywater Process Design Kit (PDK), which contains all the necessary foundry-provided PDK-related files. To accomplish this, we follow these steps within the Openlane design directory:
+Create a folder called "pes_sdw" within the design directory.
+Within the "pes_sdw" folder, establish two subfolders named "src" and "config.tcl."
+To make the config.tcl file we type the following: vim config.tcl
 
+```
+set ::env(DESIGN_NAME) "pes_sdw"
 
+set ::env(VERILOG_FILES) "./designs/pes_sdw/src/pes_sdw.v"
 
+set ::env(CLOCK_PERIOD) "10.000"
+set ::env(CLOCK_PORT) "clk"
+set ::env(CLOCK_NET) $::env(CLOCK_PORT)
+
+set filename $::env(OPENLANE_ROOT)/designs/$::env(DESIGN_NAME)/$::env(PDK)_$::env(STD_CELL_LIBRARY)_config.tcl
+if { [file exists $filename] == 1} {
+        source $filename
+}
+```
+- after this, we go to the src file and add the pes_sdw.v file that we generated from Yosys in RTL synthesis and the required PDKs for our design.
 
 
 
