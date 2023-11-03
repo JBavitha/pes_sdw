@@ -259,8 +259,13 @@ ls
 magic -T /home/bavitha/.volare/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.nom.lef def read pes_sdw.def &
 ```
 
+![image](https://github.com/JBavitha/pes_sdw/assets/142578450/7f61221a-cb0a-42c4-ad59-d9033dad4b7a)
 
-
+## PLACEMENT:
+- First change the directory to
+```
+cd OpenLane/designs/pes_sdw/runs/RUN_2023.11.03_05.32.49/results/placement
+```
 
 
 
