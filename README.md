@@ -265,5 +265,5 @@ magic -T /home/bavitha/.volare/sky130A/libs.tech/magic/sky130A.tech lef read ../
 
 
 
-![image](https://github.com/JBavitha/pes_sdw/assets/142578450/6fb9580b-8128-4da4-bc1a-a1f35276b439)
+
 
