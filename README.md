@@ -258,17 +258,30 @@ ls
 ```
 magic -T /home/bavitha/.volare/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.nom.lef def read pes_sdw.def &
 ```
+<img width="475" alt="Screenshot 2023-11-03 134156" src="https://github.com/JBavitha/pes_sdw/assets/142578450/778adc35-786c-489a-9b79-41a6904029a7">
 
-![image](https://github.com/JBavitha/pes_sdw/assets/142578450/7f61221a-cb0a-42c4-ad59-d9033dad4b7a)
+<img width="471" alt="Screenshot 2023-11-03 134233" src="https://github.com/JBavitha/pes_sdw/assets/142578450/831c37b2-91e3-4d91-a219-ea9e220ece7a">
+
+<img width="484" alt="Screenshot 2023-11-03 134317" src="https://github.com/JBavitha/pes_sdw/assets/142578450/f4f8f81a-1e93-4504-8602-8c3ee4f356cd">
 
 ## PLACEMENT:
 - First change the directory to
 ```
 cd OpenLane/designs/pes_sdw/runs/RUN_2023.11.03_05.32.49/results/placement
+magic -T /home/bavitha/.volare/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.nom.lef def read
+magic -T /home/bavitha/.volare/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.nom.lef def read pes_sdw.def &
+
 ```
 
+<img width="476" alt="Screenshot 2023-11-03 134801" src="https://github.com/JBavitha/pes_sdw/assets/142578450/17ea5c8d-6b31-46a5-9796-61df13790e15">
 
+<img width="476" alt="Screenshot 2023-11-03 134826" src="https://github.com/JBavitha/pes_sdw/assets/142578450/7d89503b-b1bd-4d53-a171-918c559db244">
 
+### ROUTING:
 
+<img width="478" alt="Screenshot 2023-11-03 135031" src="https://github.com/JBavitha/pes_sdw/assets/142578450/1050fd08-d552-470a-b8f1-d1bb1e3ac5b0">
 
+<img width="478" alt="Screenshot 2023-11-03 135109" src="https://github.com/JBavitha/pes_sdw/assets/142578450/5c10d76c-7ad3-462f-a89a-94ceee616820">
+
+<img width="485" alt="Screenshot 2023-11-03 135147" src="https://github.com/JBavitha/pes_sdw/assets/142578450/30e4eaef-b67d-4675-ba6e-c17650e4b3f0">
 
