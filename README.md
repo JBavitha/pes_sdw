@@ -148,9 +148,21 @@ Key facets of physical design encompass:
  - Physical Verification: Conducting rigorous checks to confirm that the physical design adheres to design rules and is free from errors.
  - Package Design: Creating the external packaging of the chip, considering factors like heat dissipation and connectivity.
 
-
-
-
+# Installation
+### ngspice
+- Download the tarball from `https://sourceforge.net/projects/ngspice/files/` to a local directory
+- 
+```
+cd $HOME
+sudo apt-get install libxaw7-dev
+tar -zxvf ngspice-41.tar.gz
+cd ngspice-41
+mkdir release
+cd release
+../configure  --with-x --with-readline=yes --disable-debug
+sudo make
+sudo make install
+```
 
 
 
