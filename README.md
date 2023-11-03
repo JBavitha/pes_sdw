@@ -227,17 +227,43 @@ if { [file exists $filename] == 1} {
         source $filename
 }
 ```
+```config.json``` looks like 
+![image](https://github.com/JBavitha/pes_sdw/assets/142578450/1a2e13a0-54ad-492a-82c4-231dd925c983)
+
+
 - after this, we go to the src file and add the pes_sdw.v file that we generated from Yosys in RTL synthesis and the required PDKs for our design.
 ### Step 2
-- To initiate Openlane, we invoke it by executing the following commands
+- we invoke the openlane.
 ```
-cd Desktop/work/tools/openlane_working_dir/openlane
-docker
-./flow.tcl -interactive
-package require openlane
+cd OpenLane
+make mount
+./flow.tcl -design <DESIGN NAME>
+
+```
+![image](https://github.com/JBavitha/pes_sdw/assets/142578450/93ba2e58-633e-42be-a5a0-7179152fad58)
+
+
+## FLOORPLAN
+
+- To locate pes_sdw.def file for floorplan we type following command
+```
+cd OpenLane/designs/pes_sdw/runs/RUN_2023.11.03_05.32.49/results/floorplan
+ls
+```
+![Screenshot from 2023-11-03 18-28-49](https://github.com/JBavitha/pes_sdw/assets/142578450/2a670b2c-ca32-49e0-a187-acaf155d3225)
+
+
+- now to view the floorplan we type the following command:
+
+```
+magic -T /home/bavitha/.volare/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.nom.lef def read pes_sdw.def &
 ```
 
 
 
 
+
+
+
+![image](https://github.com/JBavitha/pes_sdw/assets/142578450/6fb9580b-8128-4da4-bc1a-a1f35276b439)
 
