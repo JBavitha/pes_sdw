@@ -19,6 +19,11 @@ A Mealy state machine is a type of finite state machine where the outputs are de
 - Pattern Recognition
 - Firmware and Embedded Systems
 
+<details>
+
+<summary>RTL Synthesis and GLS Simulation</summary>
+
+
 
 ## Tools Used in RTL to GLS flow are:
 
@@ -131,6 +136,14 @@ iverilog ../my_lib/verilog_model/primitives.v ../my_lib/verilog_model/sky130_fd_
 gtkwave pes_sdw_tb.vcd 
 ```
 ![Screenshot from 2023-10-21 12-10-08](https://github.com/JBavitha/pes_sdw/assets/142578450/c628d6b0-404a-4a61-8efb-23a7a9847545)
+
+</details>
+
+<details>
+
+<summary>Physical Design</summary>
+
+
 
 # Physical design 
 
@@ -336,7 +349,7 @@ make mount
 
 
 
-
+</details>
 
 
 
