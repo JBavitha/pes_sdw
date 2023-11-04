@@ -328,6 +328,11 @@ magic -T /home/bavitha/.volare/sky130A/libs.tech/magic/sky130A.tech lef read ../
 
 <img width="602" alt="image" src="https://github.com/JBavitha/pes_sdw/assets/142578450/8b8dde79-3fd2-477c-a801-00f7bf3cab0e">
 
+**cts statistics**
+
+<img width="450" alt="image" src="https://github.com/JBavitha/pes_sdw/assets/142578450/74e36b43-e73f-4e15-a149-827272a430d3">
+
+
 ### Automatic flow in Openlane:
 
 ```
@@ -345,7 +350,7 @@ make mount
 
 
 
-<img width="450" alt="image" src="https://github.com/JBavitha/pes_sdw/assets/142578450/74e36b43-e73f-4e15-a149-827272a430d3">
+
 
 
 
