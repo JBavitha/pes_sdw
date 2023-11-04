@@ -148,52 +148,36 @@ gtkwave pes_sdw_tb.vcd
  - Physical Verification: Conducting rigorous checks to confirm that the physical design adheres to design rules and is free from errors.
  - Package Design: Creating the external packaging of the chip, considering factors like heat dissipation and connectivity.
 
-# Installation
+## Installation of tools:
 
+**Openlane and Docker**
 
-### Openlane
+- Follow the steps in the below link to install Docker
+  https://docs.docker.com/engine/install/ubuntu/
+
+- To install Openlane2
+  https://openlane.readthedocs.io/en/latest/getting_started/installation/installation_ubuntu.html
+
+### Magic
+
+- Follow the below steps to install magic
+
 ```
-sudo apt-get update
-sudo apt-get upgrade
-sudo apt install -y build-essential python3 python3-venv python3-pip make git
-
-sudo apt install apt-transport-https ca-certificates curl software-properties-common
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
-
-echo "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-
-sudo apt update
-sudo apt install docker-ce docker-ce-cli containerd.io
-sudo docker run hello-world
-sudo groupadd docker
-sudo usermod -aG docker $USER
-sudo reboot 
-# After reboot
-docker run hello-world (should show you the output under 'Example Output' in https://hub.docker.com/_/hello-world)
-
-- To install the PDKs and Tools
-cd $HOME
-git clone https://github.com/The-OpenROAD-Project/OpenLane
-cd OpenLane
-make
-make test
+git clone https://github.com/RTimothyEdwards/magic  
+$ sudo apt-get install m4  
+$ sudo apt-get install tcl-dev  
+$ sudo apt-get install tk-dev  
+$ sudo apt-get install blt  
+$ sudo apt-get install freeglut3  
+$ sudo apt-get install libglut3  
+$ sudo apt-get install libglu1-mesa-dev  
+$ sudo apt-get install libgl1-mesa-dev  
+$ sudo apt-get install csh  
+$ ./configure  
+$ make  
+$ make install
 ```
-### magic
-```
-sudo apt-get install m4
-sudo apt-get install tcsh
-sudo apt-get install csh
-sudo apt-get install libx11-dev
-sudo apt-get install tcl-dev tk-dev
-sudo apt-get install libcairo2-dev
-sudo apt-get install mesa-common-dev libglu1-mesa-dev
-sudo apt-get install libncurses-dev
-git clone https://github.com/RTimothyEdwards/magic
-cd magic
-./configure
-sudo make
-sudo make install
-```
+
 ### Step 1
 - To begin the physical design process, we must create the design file for the "pes_sdw" project. This entails having the "pes_sdw.v" file and access to the Skywater Process Design Kit (PDK), which contains all the necessary foundry-provided PDK-related files. To accomplish this, we follow these steps within the Openlane design directory:
 - Create a folder called "pes_sdw" within the design directory.
@@ -205,18 +189,36 @@ sudo make install
 
 
 - after this, we go to the src file and add the pes_sdw.v file that we generated from Yosys in RTL synthesis and the required PDKs for our design.
+
 ### Step 2
 - we invoke the openlane.
 ```
 cd OpenLane
 make mount
-./flow.tcl -design <DESIGN NAME>
-
+./flow.tcl -interactive
+package require openlane 0.9
+prep -design pes_sdw
 ```
+
+<img width="604" alt="image" src="https://github.com/JBavitha/pes_sdw/assets/142578450/0ea08725-c509-46b0-84e5-a2d1688ee621">
+
 ![image](https://github.com/JBavitha/pes_sdw/assets/142578450/93ba2e58-633e-42be-a5a0-7179152fad58)
+
+```run_synthesis```
+
+<img width="610" alt="image" src="https://github.com/JBavitha/pes_sdw/assets/142578450/3307d948-871f-4412-97fb-69cbfdaf4c94">
+
+- We can find the following synthesis report file in
+
+```Openlane/designs/pes_bc/runs/<latest_run>/reports/synthesis```
+
+<img width="448" alt="image" src="https://github.com/JBavitha/pes_sdw/assets/142578450/a1dab21c-b818-47c2-bb17-1375a0f0925a">
 
 
 ## FLOORPLAN
+
+```run_floorplan```
+
 
 - To locate pes_sdw.def file for floorplan we type following command
 ```
@@ -229,6 +231,7 @@ ls
 - now to view the floorplan we type the following command:
 
 ```
+cd OpenLane/designs/pes_sdw/runs/RUN_2023.11.03_05.32.49/results/floorplan
 magic -T /home/bavitha/.volare/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.nom.lef def read pes_sdw.def &
 ```
 <img width="475" alt="Screenshot 2023-11-03 134156" src="https://github.com/JBavitha/pes_sdw/assets/142578450/778adc35-786c-489a-9b79-41a6904029a7">
@@ -238,10 +241,12 @@ magic -T /home/bavitha/.volare/sky130A/libs.tech/magic/sky130A.tech lef read ../
 <img width="484" alt="Screenshot 2023-11-03 134317" src="https://github.com/JBavitha/pes_sdw/assets/142578450/f4f8f81a-1e93-4504-8602-8c3ee4f356cd">
 
 ## PLACEMENT:
+
+```run_placement```
+
 - Follow the below steps
 ```
 cd OpenLane/designs/pes_sdw/runs/RUN_2023.11.03_05.32.49/results/placement
-magic -T /home/bavitha/.volare/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.nom.lef def read
 magic -T /home/bavitha/.volare/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.nom.lef def read pes_sdw.def &
 
 ```
@@ -250,11 +255,38 @@ magic -T /home/bavitha/.volare/sky130A/libs.tech/magic/sky130A.tech lef read ../
 
 <img width="476" alt="Screenshot 2023-11-03 134826" src="https://github.com/JBavitha/pes_sdw/assets/142578450/7d89503b-b1bd-4d53-a171-918c559db244">
 
+**placement statistics**
+```OpenLane/designs/pes_sdw/runs/RUN_2023.11.03_05.32.49/results/placement```
+<img width="450" alt="image" src="https://github.com/JBavitha/pes_sdw/assets/142578450/757243ff-8bc0-4652-9267-2840671a1ed7">
+
+
 ### ROUTING:
+
+```run_routing```
+
+- follow below steps
+```
+cd OpenLane/designs/pes_sdw/runs/RUN_2023.11.03_05.32.49/results/routing
+magic -T /home/bavitha/.volare/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.nom.lef def read pes_sdw.def &
+
+```
 
 <img width="478" alt="Screenshot 2023-11-03 135031" src="https://github.com/JBavitha/pes_sdw/assets/142578450/1050fd08-d552-470a-b8f1-d1bb1e3ac5b0">
 
 <img width="478" alt="Screenshot 2023-11-03 135109" src="https://github.com/JBavitha/pes_sdw/assets/142578450/5c10d76c-7ad3-462f-a89a-94ceee616820">
 
 <img width="485" alt="Screenshot 2023-11-03 135147" src="https://github.com/JBavitha/pes_sdw/assets/142578450/30e4eaef-b67d-4675-ba6e-c17650e4b3f0">
+
+
+**Routing analysis**
+
+
+
+
+
+
+
+
+
+
 
