@@ -135,7 +135,7 @@ gtkwave pes_sdw_tb.vcd
 
 - Physical design is the essential procedure that converts an abstract depiction of an electronic system, like an integrated circuit or computer chip, into a practical layout fit for manufacturing. This intricate process involves a series of stages for organizing and structuring different components, such as transistors, wiring, and connections, on a semiconductor material.
 
-Key facets of physical design encompass:
+**Key facts of physical design encompass:**
 
  - Floorplanning: Defining the spatial arrangement of components and modules within the chip's layout.
  - Placement: Positioning individual elements like transistors and logic gates efficiently on the semiconductor substrate.
@@ -149,36 +149,8 @@ Key facets of physical design encompass:
  - Package Design: Creating the external packaging of the chip, considering factors like heat dissipation and connectivity.
 
 # Installation
-### ngspice
-- Download the tarball from `https://sourceforge.net/projects/ngspice/files/` to a local directory
 
-```
-cd $HOME
-sudo apt-get install libxaw7-dev
-tar -zxvf ngspice-41.tar.gz
-cd ngspice-41
-mkdir release
-cd release
-../configure  --with-x --with-readline=yes --disable-debug
-sudo make
-sudo make install
-```
-### magic
-```
-sudo apt-get install m4
-sudo apt-get install tcsh
-sudo apt-get install csh
-sudo apt-get install libx11-dev
-sudo apt-get install tcl-dev tk-dev
-sudo apt-get install libcairo2-dev
-sudo apt-get install mesa-common-dev libglu1-mesa-dev
-sudo apt-get install libncurses-dev
-git clone https://github.com/RTimothyEdwards/magic
-cd magic
-./configure
-sudo make
-sudo make install
-```
+
 ### Openlane
 ```
 sudo apt-get update
@@ -206,27 +178,28 @@ cd OpenLane
 make
 make test
 ```
-
+### magic
+```
+sudo apt-get install m4
+sudo apt-get install tcsh
+sudo apt-get install csh
+sudo apt-get install libx11-dev
+sudo apt-get install tcl-dev tk-dev
+sudo apt-get install libcairo2-dev
+sudo apt-get install mesa-common-dev libglu1-mesa-dev
+sudo apt-get install libncurses-dev
+git clone https://github.com/RTimothyEdwards/magic
+cd magic
+./configure
+sudo make
+sudo make install
+```
 ### Step 1
 - To begin the physical design process, we must create the design file for the "pes_sdw" project. This entails having the "pes_sdw.v" file and access to the Skywater Process Design Kit (PDK), which contains all the necessary foundry-provided PDK-related files. To accomplish this, we follow these steps within the Openlane design directory:
-Create a folder called "pes_sdw" within the design directory.
-Within the "pes_sdw" folder, establish two subfolders named "src" and "config.tcl."
-To make the config.tcl file we type the following: vim config.tcl
+- Create a folder called "pes_sdw" within the design directory.
+- Within the "pes_sdw" folder, establish two subfolders named "src" and "config.json".
+- To make the config.json file we type the following: vim config.json
 
-```
-set ::env(DESIGN_NAME) "pes_sdw"
-
-set ::env(VERILOG_FILES) "./designs/pes_sdw/src/pes_sdw.v"
-
-set ::env(CLOCK_PERIOD) "10.000"
-set ::env(CLOCK_PORT) "clk"
-set ::env(CLOCK_NET) $::env(CLOCK_PORT)
-
-set filename $::env(OPENLANE_ROOT)/designs/$::env(DESIGN_NAME)/$::env(PDK)_$::env(STD_CELL_LIBRARY)_config.tcl
-if { [file exists $filename] == 1} {
-        source $filename
-}
-```
 ```config.json``` looks like 
 ![image](https://github.com/JBavitha/pes_sdw/assets/142578450/1a2e13a0-54ad-492a-82c4-231dd925c983)
 
@@ -265,7 +238,7 @@ magic -T /home/bavitha/.volare/sky130A/libs.tech/magic/sky130A.tech lef read ../
 <img width="484" alt="Screenshot 2023-11-03 134317" src="https://github.com/JBavitha/pes_sdw/assets/142578450/f4f8f81a-1e93-4504-8602-8c3ee4f356cd">
 
 ## PLACEMENT:
-- First change the directory to
+- Follow the below steps
 ```
 cd OpenLane/designs/pes_sdw/runs/RUN_2023.11.03_05.32.49/results/placement
 magic -T /home/bavitha/.volare/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.nom.lef def read
