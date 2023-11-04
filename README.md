@@ -131,6 +131,7 @@ iverilog ../my_lib/verilog_model/primitives.v ../my_lib/verilog_model/sky130_fd_
 gtkwave pes_sdw_tb.vcd 
 ```
 ![Screenshot from 2023-10-21 12-10-08](https://github.com/JBavitha/pes_sdw/assets/142578450/c628d6b0-404a-4a61-8efb-23a7a9847545)
+
 # Physical design 
 
 - Physical design is the essential procedure that converts an abstract depiction of an electronic system, like an integrated circuit or computer chip, into a practical layout fit for manufacturing. This intricate process involves a series of stages for organizing and structuring different components, such as transistors, wiring, and connections, on a semiconductor material.
@@ -185,13 +186,17 @@ $ make install
 - To make the config.json file we type the following: vim config.json
 
 ```config.json``` looks like 
+
+
 ![image](https://github.com/JBavitha/pes_sdw/assets/142578450/1a2e13a0-54ad-492a-82c4-231dd925c983)
 
 
 - after this, we go to the src file and add the pes_sdw.v file that we generated from Yosys in RTL synthesis and the required PDKs for our design.
 
 ### Step 2
+
 - we invoke the openlane.
+
 ```
 cd OpenLane
 make mount
@@ -200,9 +205,12 @@ package require openlane 0.9
 prep -design pes_sdw
 ```
 
+
 <img width="604" alt="image" src="https://github.com/JBavitha/pes_sdw/assets/142578450/0ea08725-c509-46b0-84e5-a2d1688ee621">
 
+
 ![image](https://github.com/JBavitha/pes_sdw/assets/142578450/93ba2e58-633e-42be-a5a0-7179152fad58)
+
 
 ```run_synthesis```
 
@@ -234,11 +242,15 @@ ls
 cd OpenLane/designs/pes_sdw/runs/RUN_2023.11.03_05.32.49/results/floorplan
 magic -T /home/bavitha/.volare/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.nom.lef def read pes_sdw.def &
 ```
+
 <img width="475" alt="Screenshot 2023-11-03 134156" src="https://github.com/JBavitha/pes_sdw/assets/142578450/778adc35-786c-489a-9b79-41a6904029a7">
+
 
 <img width="471" alt="Screenshot 2023-11-03 134233" src="https://github.com/JBavitha/pes_sdw/assets/142578450/831c37b2-91e3-4d91-a219-ea9e220ece7a">
 
+
 <img width="484" alt="Screenshot 2023-11-03 134317" src="https://github.com/JBavitha/pes_sdw/assets/142578450/f4f8f81a-1e93-4504-8602-8c3ee4f356cd">
+
 
 ## PLACEMENT:
 
@@ -253,10 +265,14 @@ magic -T /home/bavitha/.volare/sky130A/libs.tech/magic/sky130A.tech lef read ../
 
 <img width="476" alt="Screenshot 2023-11-03 134801" src="https://github.com/JBavitha/pes_sdw/assets/142578450/17ea5c8d-6b31-46a5-9796-61df13790e15">
 
+
 <img width="476" alt="Screenshot 2023-11-03 134826" src="https://github.com/JBavitha/pes_sdw/assets/142578450/7d89503b-b1bd-4d53-a171-918c559db244">
+
 
 **placement statistics**
 ```OpenLane/designs/pes_sdw/runs/RUN_2023.11.03_05.32.49/results/placement```
+
+
 <img width="450" alt="image" src="https://github.com/JBavitha/pes_sdw/assets/142578450/757243ff-8bc0-4652-9267-2840671a1ed7">
 
 
@@ -271,9 +287,12 @@ magic -T /home/bavitha/.volare/sky130A/libs.tech/magic/sky130A.tech lef read ../
 
 ```
 
+
 <img width="478" alt="Screenshot 2023-11-03 135031" src="https://github.com/JBavitha/pes_sdw/assets/142578450/1050fd08-d552-470a-b8f1-d1bb1e3ac5b0">
 
+
 <img width="478" alt="Screenshot 2023-11-03 135109" src="https://github.com/JBavitha/pes_sdw/assets/142578450/5c10d76c-7ad3-462f-a89a-94ceee616820">
+
 
 <img width="485" alt="Screenshot 2023-11-03 135147" src="https://github.com/JBavitha/pes_sdw/assets/142578450/30e4eaef-b67d-4675-ba6e-c17650e4b3f0">
 
