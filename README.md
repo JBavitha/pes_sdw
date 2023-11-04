@@ -218,7 +218,7 @@ prep -design pes_sdw
 
 - We can find the following synthesis report file in
 
-```Openlane/designs/pes_bc/runs/<latest_run>/reports/synthesis```
+```Openlane/designs/pes_sdw/runs/<latest_run>/reports/synthesis```
 
 <img width="448" alt="image" src="https://github.com/JBavitha/pes_sdw/assets/142578450/a1dab21c-b818-47c2-bb17-1375a0f0925a">
 
@@ -270,7 +270,9 @@ magic -T /home/bavitha/.volare/sky130A/libs.tech/magic/sky130A.tech lef read ../
 
 
 **placement statistics**
-```OpenLane/designs/pes_sdw/runs/RUN_2023.11.03_05.32.49/results/placement```
+
+
+```Openlane/designs/pes_sdw/runs/<latest run>/logs/placement```
 
 
 <img width="450" alt="image" src="https://github.com/JBavitha/pes_sdw/assets/142578450/757243ff-8bc0-4652-9267-2840671a1ed7">
@@ -299,8 +301,38 @@ magic -T /home/bavitha/.volare/sky130A/libs.tech/magic/sky130A.tech lef read ../
 
 **Routing analysis**
 
+```Openlane/designs/pes_bc/runs/<latest run>/logs/routing```
+
+<img width="449" alt="image" src="https://github.com/JBavitha/pes_sdw/assets/142578450/9ae64a25-12d1-4147-a0c9-32fe6fc1ac76">
 
 
+<img width="449" alt="image" src="https://github.com/JBavitha/pes_sdw/assets/142578450/99a07c73-bd51-42c7-bfdf-3da7f2149fbe">
+
+
+### Clock tree synthesis
+
+```run_cts```
+
+<img width="602" alt="image" src="https://github.com/JBavitha/pes_sdw/assets/142578450/8b8dde79-3fd2-477c-a801-00f7bf3cab0e">
+
+### Automatic flow in Openlane:
+
+```
+make mount
+
+./flow.tcl -design <design name>
+
+```
+
+<img width="599" alt="image" src="https://github.com/JBavitha/pes_sdw/assets/142578450/90213bc0-2d5d-442e-890e-4e2b15d1ada1">
+
+- Flow completion
+
+<img width="558" alt="image" src="https://github.com/JBavitha/pes_sdw/assets/142578450/7c65e615-3a95-4cdc-b4cb-9be56474be7d">
+
+
+
+<img width="450" alt="image" src="https://github.com/JBavitha/pes_sdw/assets/142578450/74e36b43-e73f-4e15-a149-827272a430d3">
 
 
 
