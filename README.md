@@ -382,8 +382,13 @@ Gate count =15
 
 <img width="450" alt="image" src="https://github.com/JBavitha/pes_sdw/assets/142578450/74e36b43-e73f-4e15-a149-827272a430d3">
 
+### Final statistics
 
-
+Area = 471226 um^2
+Internal Power = 6.08e-05 w
+Switching Power = 9.65e-06 w
+Leakage Power = 1-74e-09 w
+Total Power = 7.76e-05 w
 
 
 
