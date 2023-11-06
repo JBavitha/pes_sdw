@@ -384,11 +384,11 @@ Gate count =15
 
 ### Final statistics
 
-Area = 471226 um^2
-Internal Power = 6.08e-05 w
-Switching Power = 9.65e-06 w
-Leakage Power = 1-74e-09 w
-Total Power = 7.76e-05 w
+- Area = 471226 um^2
+- Internal Power = 6.08e-05 w
+- Switching Power = 9.65e-06 w
+- Leakage Power = 1-74e-09 w
+- Total Power = 7.76e-05 w
 
 
 
