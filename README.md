@@ -357,7 +357,8 @@ make mount
 
 <img width="448" alt="image" src="https://github.com/JBavitha/pes_sdw/assets/142578450/a1dab21c-b818-47c2-bb17-1375a0f0925a">
 
-Gate count = 
+
+Gate count =15 
 
 
 **Area**
@@ -377,7 +378,7 @@ Gate count =
 
 
 
-**4.Power**
+**Power**
 
 <img width="450" alt="image" src="https://github.com/JBavitha/pes_sdw/assets/142578450/74e36b43-e73f-4e15-a149-827272a430d3">
 
