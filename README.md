@@ -351,32 +351,35 @@ make mount
 
 ### PARAMETERS
 
-**1.Post-layout Synthesis**
+**Post-layout Synthesis**
 
-Gate count = 
+
 
 <img width="448" alt="image" src="https://github.com/JBavitha/pes_sdw/assets/142578450/a1dab21c-b818-47c2-bb17-1375a0f0925a">
 
+Gate count = 
 
 
-
-**2.Area**
+**Area**
 
 <img width="489" alt="image" src="https://github.com/JBavitha/pes_sdw/assets/142578450/b9e75b59-a9bb-489a-ae29-f8c9be07b093">
 
-Area =  
 
 
 
-**3.Performance**
+
+
+
+**Summary report**
+
+<img width="558" alt="image" src="https://github.com/JBavitha/pes_sdw/assets/142578450/b1d20fbc-4420-4b5c-9a40-1012363fd5d3">
+
 
 
 
 **4.Power**
 
-
-
-
+<img width="450" alt="image" src="https://github.com/JBavitha/pes_sdw/assets/142578450/74e36b43-e73f-4e15-a149-827272a430d3">
 
 
 
